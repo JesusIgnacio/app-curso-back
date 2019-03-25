@@ -2,7 +2,7 @@ let AWS = require("aws-sdk");
 //let config = require("./config");
 let aws_remote_config = {
     "region": "us-east-2",
-    "accessKeyId": "AKIAID5GMTRH2WEBYGUQ",
+    "accessKeyId": "",
     "secretAccessKey": "" 
 };
 
