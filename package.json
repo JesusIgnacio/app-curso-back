@@ -1,0 +1,39 @@
+{
+  "name": "app-curso-back",
+  "version": "1.0.0",
+  "description": "My Moleculer project",
+  "scripts": {
+    "dev": "moleculer-runner --repl --hot services",
+    "start": "moleculer-runner services",
+    "ci": "jest --watch",
+    "test": "jest --coverage",
+    "lint": "eslint services"
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "author": "",
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.5.0",
+    "moleculer-repl": "^0.5.6"
+  },
+  "dependencies": {
+    "aws": "0.0.3-2",
+    "aws-sdk": "^2.427.0",
+    "moleculer": "^0.13.8",
+    "moleculer-web": "^0.8.5"
+  },
+  "engines": {
+    "node": ">= 6.x.x"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "rootDir": "./services",
+    "roots": [
+      "../test"
+    ]
+  }
+}
