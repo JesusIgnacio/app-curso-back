@@ -10,23 +10,31 @@ AWS.config.update(aws_remote_config);
 
 let docClient = new AWS.DynamoDB.DocumentClient();
 
-let fetchOneByKey = function()
-{
-    let params ={
-        TableName: "inscripcion",
-        Key: {
-            "inscripcion_id": "1"
-        }
-    };
+var table = "inscripcion";
+var inscripcion_id = "4";
+var rut = "123456780";
+var nombre = "Han Solo";
+var telefono = "224567891";
+var email = "test@testmail.com";
 
-        docClient.get(params, function(err,data){
-            if(err){
-                console.log("inscripcion::fetchOneByKey::error - " + JSON.stringify(err,null,2));
-            }
-            else{
-                console.log("inscripcion::fetchOneByKey::success - " + JSON.stringify(data,null,2));
-            }
-        });
+var params = {
+    TableName:table,
+    Item:{
+        "inscripcion_id": inscripcion_id,
+        "rut": rut,
+        "nombre": nombre,
+        "telefono":telefono,
+        "email": email 
+    }
 };
 
-fetchOneByKey();
+console.log("Adding a new item...");
+
+docClient.put(params, function(err, data) {
+    if (err) {
+        console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+    } else {
+        console.log("Added item:", JSON.stringify(data, null, 2));
+    }
+});
+
